@@ -28,7 +28,6 @@ def Load_book(path):
   sentences  = book.split('.')
 
   return sentences 
-
 # run sentiment analysis on each sentence in the book and save them into df_setiment 
 #def Analyzse_sentiment(sentences):
  # tagger = TextClassifier.load('sentiment')
