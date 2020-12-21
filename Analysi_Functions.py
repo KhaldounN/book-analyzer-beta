@@ -18,7 +18,8 @@ import warnings
 import spacy
 import pickle
 import streamlit as st
-
+nlp_md = spacy.load('en_core_web_md')
+import nltk
 
 # load book , clean data and split into sentences 
 def Load_book(path):
@@ -28,6 +29,7 @@ def Load_book(path):
   sentences  = book.split('.')
 
   return sentences 
+
 # run sentiment analysis on each sentence in the book and save them into df_setiment 
 #def Analyzse_sentiment(sentences):
  # tagger = TextClassifier.load('sentiment')
@@ -53,10 +55,9 @@ def Load_book(path):
 
 # run emotions dedection on each sentence 
 def Analyzse_Emotions(sentences):
-  token = RegexpTokenizer(r'[a-zA-Z0-9]+')
   cv = pickle.load(open(r'vectorizer.pickle', 'rb'))
   df_emotions = pd.DataFrame((np.zeros((1,int(len(sentences))))))
-  model = pickle.load(open(r"emotions_detector.sav", 'rb'))
+  model = pickle.load(open(r'emotions_detector.sav', 'rb'))
   for i , sentence in enumerate( sentences):
     try:
         result = model.predict(cv.transform([sentence]))
@@ -191,6 +192,4 @@ def Display_entities(df_ents , booktitle = 'Booktitle'):
 	         size="count", color="entity")
   fig.update_layout(width=1100,height=700)
   st.write(fig)
-
-
 
