@@ -14,6 +14,10 @@ st.title("Book Analyzer")
 st.header("Transform books into smart charts(Entities,Emotions,Sentiment) ")
 booktitle  = st.text_input("Please input book title" ,  'booktitle')
 file_path = st.text_input("Please input file path" ,"Please input file path")
+
+
+
+
                            
 if file_path is not "Please input file path":
   st.write('This will take a while...')
