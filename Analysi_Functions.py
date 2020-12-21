@@ -11,16 +11,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-plt.style.use("seaborn")
 import math
 import plotly.express as px
 import pandas as pd
 import warnings
-warnings.filterwarnings('ignore')
 import spacy
-nlp_md = spacy.load('en_core_web_md')
 import pickle
-from nltk.tokenize import RegexpTokenizer
 import streamlit as st
 
 
