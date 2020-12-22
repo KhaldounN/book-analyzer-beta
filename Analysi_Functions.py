@@ -18,8 +18,8 @@ import warnings
 import spacy
 import pickle
 import streamlit as st
-import en_core_web_md
-nlp_md = en_core_web_md.load()
+import en_core_web_sm
+nlp_md = en_core_web_sm.load()
 import nltk
 
 
