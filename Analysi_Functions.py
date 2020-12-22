@@ -5,8 +5,8 @@
 
 # In[9]:
 import plotly.graph_objects as go
-#from flair.models import TextClassifier
-#from flair.data import Sentence
+from flair.models import TextClassifier
+from flair.data import Sentence
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,7 +18,7 @@ import warnings
 import spacy
 import pickle
 import streamlit as st
-nlp_md = spacy.load("en_core_web_sm")
+nlp_md = spacy.load("en_core_web_md")
 import nltk
 
 # load book , clean data and split into sentences 
@@ -31,27 +31,24 @@ def Load_book(path):
   return sentences 
 
 # run sentiment analysis on each sentence in the book and save them into df_setiment 
-#def Analyzse_sentiment(sentences):
- # tagger = TextClassifier.load('sentiment')
-  #df_sentiment = pd.DataFrame((np.zeros((4,int(len(sentences))))))
-  #for i, sentence in enumerate(sentences):
-   # warnings.filterwarnings('ignore')
-    #sentence = Sentence(sentence)
-    #tagger.predict(sentence)
-    #df_sentiment[i].update(sentence.labels)
-
-
-  #for i , sentence in enumerate(df_sentiment.iloc[0,:]):
-   #   try:
-    #    df_sentiment.iloc[1,i] = sentence.value
-     #   if sentence.value == 'NEGATIVE':
-      #    df_sentiment.iloc[2,i] = sentence.score * (-1)
-       # else:
-       #   df_sentiment.iloc[2,i] = sentence.score
-      #except:
-       # pass
-
- # return df_sentiment
+def Analyzse_sentiment(sentences):
+    tagger = TextClassifier.load('sentiment')
+    df_sentiment = pd.DataFrame((np.zeros((4,int(len(sentences))))))
+    for i, sentence in enumerate(sentences):
+        warnings.filterwarnings('ignore')
+        sentence = Sentence(sentence)
+        tagger.predict(sentence)
+        df_sentiment[i].update(sentence.labels)
+    for i , sentence in enumerate(df_sentiment.iloc[0,:]):
+        try:
+            df_sentiment.iloc[1,i] = sentence.value
+            if sentence.value == 'NEGATIVE':
+                df_sentiment.iloc[2,i] = sentence.score * (-1)
+            else:
+                df_sentiment.iloc[2,i] = sentence.score
+        except:
+            pass
+    return df_sentiment
 
 # run emotions dedection on each sentence 
 def Analyzse_Emotions(sentences):
