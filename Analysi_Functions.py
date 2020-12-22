@@ -18,10 +18,8 @@ import warnings
 import spacy
 import pickle
 import streamlit as st
-import en_core_web_sm
-nlp_md = en_core_web_sm.load()
+nlp_md = spacy.load('en_core_web_md')
 import nltk
-
 
 # load book , clean data and split into sentences 
 def Load_book(path):
@@ -192,6 +190,6 @@ def Display_entities(df_ents , booktitle = 'Booktitle'):
   df_ents2.columns = ['sentence(every 50 senteces)', 'label', 'entity', 'count']
   fig = px.scatter(df_ents2,x='sentence(every 50 senteces)', y="entity",
 	         size="count", color="entity")
-  fig.update_layout(width=1100,height=700)
+  fig.update_layout(width=1100,height=1500)
   st.write(fig)
 

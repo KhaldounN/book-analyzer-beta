@@ -7,4 +7,4 @@ spacy
 streamlit
 sklearn
 nltk
-
+en_core_web_sm
