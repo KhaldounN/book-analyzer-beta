@@ -18,7 +18,7 @@ import warnings
 import spacy
 import pickle
 import streamlit as st
-nlp_md = spacy.load('en_core_web_md')
+nlp_md = spacy.load("en_core_web_sm")
 import nltk
 
 # load book , clean data and split into sentences 
