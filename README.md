@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 
 Hello , 
@@ -65,6 +66,4 @@ Vectorizers used for emotions detections model
 
 
 
-
-
-
+>>>>>>> 5aa96275d12a8ba8a780fa25cc580f1b6c0ca722
