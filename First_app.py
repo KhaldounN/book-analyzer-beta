@@ -33,8 +33,8 @@ if uploaded_file is not None:
   st.write("Done...")    
   f.Display_entities(df_ents , booktitle)
     
-  #st.write("Analyzing Sentiment...")    
-  #df_sent = f.Analyzse_sentiment(sentences)
-  #st.write("Done...")   
-  #f.Display_sentiment(df_sent , booktitle)
+  st.write("Analyzing Sentiment...")    
+  df_sent = f.Analyzse_sentiment(sentences)
+  st.write("Done...")   
+  f.Display_sentiment(df_sent , booktitle)
 

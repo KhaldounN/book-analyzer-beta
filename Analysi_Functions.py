@@ -23,12 +23,15 @@ import nltk
 
 # load book , clean data and split into sentences 
 def Load_book(path):
-  book = open(path, 'r').read()
+  book = path.readlines()
+  book = str(book)
   book = book.replace("_",' ')
   book = book.replace("\n",'')
+  book = book.replace("' ", ' ')
   sentences  = book.split('.')
 
   return sentences 
+
 
 # run sentiment analysis on each sentence in the book and save them into df_setiment 
 def Analyzse_sentiment(sentences):
