@@ -10,7 +10,7 @@ import streamlit as st
 import Analysi_Functions as f 
 # In[ ]:
 
-st.title("Book Analyzer")
+st.title("Book Analssssyzer")
 st.header("Transform books into smart charts(Entities,Emotions,Sentiment) ")
 booktitle  = st.text_input("Please input book title" ,  'booktitle')
 file_path = st.text_input("Please input file path" ,"Please input file path")
