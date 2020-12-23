@@ -10,18 +10,15 @@ import streamlit as st
 import Analysi_Functions as f 
 # In[ ]:
 
-st.title("Book Analssssyzer")
+st.title("Book Analyzer")
 st.header("Transform books into smart charts(Entities,Emotions,Sentiment) ")
 booktitle  = st.text_input("Please input book title" ,  'booktitle')
-file_path = st.text_input("Please input file path" ,"Please input file path")
+uploaded_file = st.file_uploader("please upload your book ...",
+                                 type="txt")
+if uploaded_file is not None:
 
-
-
-
-                           
-if file_path is not "Please input file path":
   st.write('This will take a while...')
-  sentences = f.Load_book(file_path)
+  sentences = f.Load_book(uploaded_file)
   st.write("Loading text...")
     
     
@@ -36,8 +33,8 @@ if file_path is not "Please input file path":
   st.write("Done...")    
   f.Display_entities(df_ents , booktitle)
     
-  st.write("Analyzing Sentiment...")    
-  df_sent = f.Analyzse_sentiment(sentences)
-  st.write("Done...")   
-  f.Display_sentiment(df_sent , booktitle)
+  #st.write("Analyzing Sentiment...")    
+  #df_sent = f.Analyzse_sentiment(sentences)
+  #st.write("Done...")   
+  #f.Display_sentiment(df_sent , booktitle)
 
